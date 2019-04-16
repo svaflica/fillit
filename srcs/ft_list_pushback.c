@@ -1,0 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_list_pushback.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/16 20:33:23 by djeanna           #+#    #+#             */
+/*   Updated: 2019/04/16 21:08:13 by djeanna          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "inc/header.h"
+
+t_list			*ft_list_pushback(t_list **beg, char **map)
+{
+	t_list		*tmp;
+
+	if (beg != NULL)
+	{
+		if (*beg != NULL)
+		{
+			tmp = *beg;
+			while (tmp->next)
+				tmp = tmp->next;
+			tmp->next = ft_strnew(map);
+			if (tmp->next)
+				(tmp->next)->prev = tmp;
+			return (tmp->next);
+		}
+		else
+			*beg = ft_strnew(map);
+		return (*beg);
+	}
+	return (NULL);
+}

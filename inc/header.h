@@ -6,7 +6,7 @@
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 15:48:49 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/16 16:41:40 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/16 19:07:54 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ int				get_next_line(const int fd, char **line);
 char			**ft_map_create(const int fd); //1
 t_list			*is_map_valid(const int fd); //2
 /* (char **) is pointer on the first '#'   */
-int				is_tetramino_valid(char **cur, char **prev);
+int				is_tetramino_valid(char **cur, char **prev, int num);
 
 #endif
