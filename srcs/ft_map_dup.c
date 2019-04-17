@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_new.c                                      :+:      :+:    :+:   */
+/*   ft_map_dup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 18:57:19 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/17 15:42:44 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/17 15:13:04 by djeanna           #+#    #+#             */
+/*   Updated: 2019/04/17 15:43:51 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/header.h"
+#include "../inc/header.h"
 
 /*
-**		This function creates a new object of t_list type
+**		This function creates a duplicate of map to add it into list
 */
 
-t_list		*ft_list_new(char **map)
+char	**ft_map_dup(char **map)
 {
-	t_list *new;
+	char	**res;
+	int		w;
+	int		h;
 
-	if (!(new = (t_list *)malloc(sizeof(t_list))))
+	if (!map && !*map)
 		return (NULL);
-	new->map = ft_map_dup(map);
-	new->next = NULL;
-	new->prev = NULL;
+	w = 0;
+	h = 0;
+	while (map[h][w])
+		w++;
+	while (map[h])
+		h++;
+	if (!(res = (char **)malloc(sizeof(char *) * (h + 1))))
+		return (NULL);
+	res[h] = NULL;
+	h = -1;
+	while (map[++h])
+		if (!(res[h] = ft_strdup(map[h])))
+			return (NULL);
+	return (res);
 }

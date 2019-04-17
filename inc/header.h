@@ -6,7 +6,7 @@
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 15:48:49 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/16 19:07:54 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/17 15:41:32 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ t_list			*ft_list_new(char **map);
 t_list			*ft_list_pushback(t_list **beg, char **map);
 t_list			*ft_list_delone(t_list **beg, t_list *to_del);
 t_list			*ft_list_del(t_list **beg);
+
+char			**ft_map_dup(char **map);
 
 int				get_next_line(const int fd, char **line);
 char			**ft_map_create(const int fd); //1

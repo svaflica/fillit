@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_new.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
+/*   By: djeanna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 18:57:19 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/17 15:42:44 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/04 16:46:22 by djeanna           #+#    #+#             */
+/*   Updated: 2019/04/11 10:16:00 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/header.h"
+#include "libft.h"
 
-/*
-**		This function creates a new object of t_list type
-*/
-
-t_list		*ft_list_new(char **map)
+char	*ft_strdup(const char *s1)
 {
-	t_list *new;
+	char	*res;
+	int		iter;
 
-	if (!(new = (t_list *)malloc(sizeof(t_list))))
+	iter = ft_strlen(s1);
+	if (!(res = (char *)malloc(sizeof(char) * (iter + 1))))
 		return (NULL);
-	new->map = ft_map_dup(map);
-	new->next = NULL;
-	new->prev = NULL;
+	res[iter--] = '\0';
+	while (iter >= 0)
+	{
+		res[iter] = s1[iter];
+		iter--;
+	}
+	return (res);
 }
