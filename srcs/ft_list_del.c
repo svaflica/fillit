@@ -6,16 +6,16 @@
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 16:14:47 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/17 16:20:22 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/17 17:59:41 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/header.h"
 
-void			ft_list_del(t_list **beg)
+void			ft_list_del(t_lst **beg)
 {
-	t_list	*tmp;
-	t_list	*tmp2;
+	t_lst	*tmp;
+	t_lst	*tmp2;
 
 	if (beg == NULL)
 		return ;
