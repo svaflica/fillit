@@ -6,7 +6,7 @@
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 15:48:49 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/17 17:20:41 by ashari           ###   ########.fr       */
+/*   Updated: 2019/04/17 18:36:52 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,27 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include "../libft/libft.h"
 
-typedef struct	s_list
+typedef struct	s_lst
 {
 	char		**map;
 
-	t_list		*next;
-	t_list		*prev;
-}				t_list;
+	struct s_lst		*next;
+	struct s_lst		*prev;
+}				t_lst;
 
-t_list			*ft_list_new(char **map);
-t_list			*ft_list_pushback(t_list **beg, char **map);
-t_list			*ft_list_delone(t_list **beg, t_list *to_del);
-t_list			*ft_list_del(t_list **beg);
+t_lst			*ft_list_new(char **map);
+t_lst			*ft_list_pushback(t_lst **beg, char **map);
+void			ft_list_delone(t_lst **to_del);
+void			ft_list_del(t_lst **beg);
+
+char			**ft_map_dup(char **map);
+char			**ft_cutelem(char *map);
+void			ft_map_del(char **map);
 
 int				get_next_line(const int fd, char **line);
-char			*ft_map_create(const int fd); //1
-t_list			*is_map_valid(const int fd); //2
-/* (char **) is pointer on the first '#'   */
-int				is_tetramino_valid(char **cur, char **prev);
+int				is_tetramino_valid(char *cur, int iter);
+int				is_map_valid(char *buff);
 
 #endif
