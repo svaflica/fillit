@@ -6,7 +6,7 @@
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 15:48:49 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/17 16:22:37 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/17 18:01:38 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@
 #include <unistd.h>
 #include "../libft/libft.h"
 
-typedef struct	s_list
+typedef struct	s_lst
 {
 	char		**map;
 
-	t_list		*next;
-	t_list		*prev;
-}				t_list;
+	struct s_lst		*next;
+	struct s_lst		*prev;
+}				t_lst;
 
-t_list			*ft_list_new(char **map);
-t_list			*ft_list_pushback(t_list **beg, char **map);
-void			ft_list_delone(t_list **to_del);
-void			ft_list_del(t_list **beg);
+t_lst			*ft_list_new(char **map);
+t_lst			*ft_list_pushback(t_lst **beg, char **map);
+void			ft_list_delone(t_lst **to_del);
+void			ft_list_del(t_lst **beg);
 
 char			**ft_map_dup(char **map);
 void			ft_map_del(char **map);

@@ -6,7 +6,7 @@
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:31:00 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/17 17:50:24 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/17 18:07:28 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static int		ft_recursive_walk(char *map, int iter, int iter_prev)
 		i = 0;
 		i += ft_recursive_walk(map, iter + 1, iter) +
 				ft_recursive_walk(map, iter + 5, iter);
+		printf("%d\n", i);
 		if (iter != iter_prev)
 			i += ft_recursive_walk(map, iter - 1, iter);
 		return (i);

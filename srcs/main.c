@@ -6,7 +6,7 @@
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 17:53:14 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/17 17:56:54 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/17 18:04:47 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@
 int		main()
 {
 	char *str = "....\n.#..\n.###\n....\n";
-	printf("%s\n", is_tetramino_valid(str, 6));
+	printf("%d\n", is_tetramino_valid(str, 6));
 }
