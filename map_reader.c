@@ -6,7 +6,7 @@
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 15:01:04 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/17 19:40:10 by ashari           ###   ########.fr       */
+/*   Updated: 2019/04/17 19:53:07 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ static	char		*is_valid(char *buff, t_lst **tetramino)
 	return (tmp);
 }
 
-t_lst			**map_reader(int fd, t_lst **tetramino)
+t_lst				**map_reader(int fd, t_lst **tetramino)
 {
-	int			res;
-	char		*tmp;
-	char		*buff;
+	int				res;
+	char			*tmp;
+	char			*buff;
 
 	tmp = NULL;
 	buff = NULL;
