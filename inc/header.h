@@ -6,7 +6,7 @@
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 15:48:49 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/17 19:55:02 by ashari           ###   ########.fr       */
+/*   Updated: 2019/04/17 22:20:55 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char			**ft_map_dup(char **map);
 void			ft_map_del(char **map);
 
 int				is_tetramino_valid(char *cur, int iter);
-int				is_map_valid(char *buff);
-t_lst			**map_reader(int fd, t_lst **tetramino);
+int				is_map_valid(char *buff, int res1);
+t_lst			*map_reader(int fd, t_lst **tetramino);
 
 #endif

@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_map_valid.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/17 18:34:42 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/17 19:31:47 by ashari           ###   ########.fr       */
+/*   Created: 2019/04/17 20:00:32 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/17 22:21:06 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/header.h"
+#include <stdio.h>
 
-int	is_map_valid(char *buff)
+int		main(int ac, char **av)
 {
-	int			i;
-	int			res;
-	int			count;
+	t_lst	*t;
+	int		fd;
 
-	i = 0;
-	count = 0;
-	while (buff[i])
-		if ((buff[i] == '.' || buff[i] == '#')
-		|| (buff[i] == '\n' && (i % 10 == 9 || i % 10 == 4 || i == 20)))
+	fd = open(av[1], O_RDONLY);
+	t = map_reader(fd, &t);
+	int i;
+	printf("%p\n", t);
+	while (t)
+	{
+		i = 0;
+		while ((t->map)[i])
 		{
-			if (buff[i] == '#')
-			{
-				if (count == 0)
-					res = i;
-				count++;
-			}
+			printf("%s\n", (t->map)[i]);
 			i++;
 		}
-		else
-			return (-1);
-	if (count != 4 || i != 21)
-		return (-1);
-	return (res);
+		t = t->next;
+	}
+	close(fd);
 }

@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_pushback.c                                 :+:      :+:    :+:   */
+/*   is_map_valid.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 20:33:23 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/17 22:20:46 by ashari           ###   ########.fr       */
+/*   Created: 2019/04/17 18:34:42 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/17 22:23:26 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/header.h"
 
-/*
-**		This function creates a new list with parameter map and
-**			pushes it back in list which beginning is beg
-*/
-
-t_lst			*ft_list_pushback(t_lst **beg, char **map)
+int	is_map_valid(char *buff, int res1)
 {
-	t_lst		*tmp;
+	int			i;
+	int			res;
+	int			count;
 
-	if (beg != NULL)
+	i = 0;
+	count = 0;
+	while (buff[i])
 	{
-		if (*beg != NULL)
+		if ((buff[i] == '.' || buff[i] == '#')
+		|| (buff[i] == '\n' && (i % 10 == 9 || i % 10 == 4 || i == 20)))
 		{
-			tmp = *beg;
-			while (tmp->next)
-				tmp = tmp->next;
-			tmp->next = ft_list_new(map);
-			if (tmp->next)
+
+			if (buff[i] == '#')
 			{
-				(tmp->next)->prev = tmp;
-				tmp->next->next = NULL;
+				if (count == 0)
+					res = i;
+				count++;
 			}
-			return (tmp->next);
+			i++;
 		}
 		else
-			*beg = ft_list_new(map);
-		return (*beg);
+			return (-1);
 	}
-	return (NULL);
+			//printf("%d %d", count, i, res);
+	if (count != 4 || i != res1)
+		return (-1);
+	return (res);
 }
