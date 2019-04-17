@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_tetramino_valid.c                               :+:      :+:    :+:   */
+/*   ft_list_del.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 18:31:00 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/17 16:33:13 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/17 16:14:47 by djeanna           #+#    #+#             */
+/*   Updated: 2019/04/17 16:20:22 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int		ft_recursive_walk(char *map, int iter)
-{
+#include "../inc/header.h"
 
-}
-
-int				is_tetramino_valid(char *map, int iter)
+void			ft_list_del(t_list **beg)
 {
-	return (ft_recursive_walk(map, iter) == 4);
+	t_list	*tmp;
+	t_list	*tmp2;
+
+	if (beg == NULL)
+		return ;
+	tmp = *beg;
+	while (tmp)
+	{
+		tmp2 = tmp->next;
+		ft_list_delone(&tmp);
+		tmp = tmp2;
+	}
+	beg = NULL;
 }
