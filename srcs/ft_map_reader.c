@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_reader.c                                       :+:      :+:    :+:   */
+/*   ft_map_reader.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/17 15:01:04 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/18 11:42:09 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/18 16:55:53 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/18 18:02:41 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 static	char		*del_all(t_lst **tetramino, char *tmp)
 {
-	printf("error");
 	ft_list_del(tetramino);
 	ft_strdel(&tmp);
 	return (NULL);
@@ -34,10 +33,10 @@ static	char		*is_valid(char *buff, t_lst **tetramino, int res)
 	t_lst			*tetramino_tmp;
 	char			*tmp;
 
-	if ((loc = is_map_valid(buff, res)) >= 0)
+	if ((loc = ft_is_map_valid(buff, res)) >= 0)
 	{
 		tmp = ft_strndup(buff, 20);
-		if (is_tetramino_valid(tmp, loc))
+		if (ft_is_tetramino_valid(tmp, loc))
 		{
 			if (!(tetramino_tmp =
 				ft_list_pushback(tetramino, ft_strsplit(tmp, '\n'))))
@@ -55,7 +54,7 @@ static	char		*is_valid(char *buff, t_lst **tetramino, int res)
 **		Usage
 */
 
-t_lst				*map_reader(int fd, t_lst **tetramino)
+t_lst				*ft_map_reader(int fd, t_lst **tetramino)
 {
 	int				res;
 	char			*tmp;

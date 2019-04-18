@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_tetramino_valid.c                               :+:      :+:    :+:   */
+/*   ft_is_tetramino_valid.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:31:00 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/18 11:42:32 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/18 18:02:08 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 **		Usage
 */
 
-int		is_tetramino_valid(char *map, int iter)
+int		ft_is_tetramino_valid(char *map, int iter)
 {
 	int valid;
 

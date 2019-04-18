@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_del.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 14:34:36 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/18 14:39:38 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/18 15:10:29 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void			ft_map_del(char **map)
 	{
 		i = 0;
 		while (map[i])
-			ft_strdel(*map[i++]);
+			ft_strdel(&map[i++]);
 		map = NULL;
 	}
 }

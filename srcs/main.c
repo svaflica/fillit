@@ -3,34 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 20:00:32 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/18 11:32:03 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/18 17:59:36 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/header.h"
+#include "../inc/header.h"
 #include <stdio.h>
 
-int		main(int ac, char **av)
+int			main(int ac, char **av)
 {
 	t_lst	*t;
 	int		fd;
 
-	fd = open(av[1], O_RDONLY);
-	t = map_reader(fd, &t);
-	int i;
-	while (t)
+	if (ac == 2)
 	{
-		i = 0;
-		while ((t->map)[i])
+		fd = open(av[1], O_RDONLY);
+		if (!(ft_check_nl(fd)))
 		{
-			printf("%s\n", (t->map)[i]);
-			i++;
+			close(fd);
+			return (ft_error_msg());
 		}
-		printf("\n");
-		t = t->next;
+		else
+		{
+			close(fd);
+			fd = open(av[1], O_RDONLY);
+			if (!(t = ft_map_reader(fd, &t)))
+				return (ft_error_msg());
+		}
 	}
-	close(fd);
+	else
+		return (ft_error_msg());
+	// int i;
+	// while (t)
+	// {
+	// 	i = 0;
+	// 	while ((t->map)[i])
+	// 	{
+	// 		printf("%s\n", (t->map)[i]);
+	// 		i++;
+	// 	}
+	// 	printf("\n");
+	// 	t = t->next;
+	// }
 }

@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_del.c                                      :+:      :+:    :+:   */
+/*   ft_check_nl.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/17 16:14:47 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/18 17:35:27 by ashari           ###   ########.fr       */
+/*   Created: 2019/04/18 16:56:21 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/18 17:26:33 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/header.h"
 
-/*
-**		This function completely removes list
-*/
-
-void			ft_list_del(t_lst **beg)
+int			ft_check_nl(int fd)
 {
-	t_lst	*tmp;
-	t_lst	*tmp2;
+	int		res;
+	int		i;
+	int		count;
+	char	buff[546];
 
-	if (beg == NULL)
-		return ;
-	tmp = *beg;
-	while (tmp)
+	i = 0;
+	count = 0;
+	if ((res = read(fd, buff, 546)) < 546)
 	{
-		tmp2 = tmp->next;
-		ft_list_delone(&tmp);
-		tmp = tmp2;
+		buff[res] = '\0';
+		while (buff[i])
+		{
+			if (buff[i] == '\n')
+				count++;
+			i++;
+		}
+		if ((count % 2) == (((res / 10) - (res % 10)) % 2)
+		&& ((count % 10) == 4 || (count % 10) == 9))
+			return (1);
+		else
+			return (0);
 	}
-	beg = NULL;
+	else
+		return (0);
 }
