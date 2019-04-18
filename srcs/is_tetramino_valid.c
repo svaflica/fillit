@@ -12,31 +12,25 @@
 
 #include "../libft/libft.h"
 
-static int		ft_recursive_walk(char *map, int iter, int iter_prev)
-{
-	int		i;
-
-	if (map[iter] == '#' && iter >= 0 && iter <= 19)
-	{
-		i = 0;
-		i += ft_recursive_walk(map, iter + 1, iter);
-		// if (i == 4)
-		// 	return (i);
-		i += ft_recursive_walk(map, iter + 5, iter);
-		// if (i == 4)
-		// 	return (i);
-		if (iter - 1 != iter_prev)
-			i += ft_recursive_walk(map, iter - 1, iter);
-		// if (i == 4)
-		// 	return (i);
-			printf("%d\n", i);
-		return (i + 1);
-	}
-	else
-		return (0);
-}
-
 int				is_tetramino_valid(char *map, int iter)
 {
-	return (ft_recursive_walk(map, iter, -1) - 1 == 4);
+	int valid;
+
+	valid = 0;
+	while (map[iter] <= 19)
+	{
+			if (map[iter] == '#')
+			{
+				if (map[iter + 1] == '#')
+					valid++;
+				if (iter <= 14 && map[iter + 5] == '#')
+					valid++;
+				if (iter > 0 && map[iter - 1] == '#')
+					valid++;
+				if (iter >= 5 && map[iter - 5] == '#')
+					valid++;
+			}
+			iter++;
+	}
+	return (valid == 6);
 }
