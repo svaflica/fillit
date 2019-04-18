@@ -6,7 +6,7 @@
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 20:33:23 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/17 22:20:46 by ashari           ###   ########.fr       */
+/*   Updated: 2019/04/18 15:43:28 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ t_lst			*ft_list_pushback(t_lst **beg, char **map)
 				(tmp->next)->prev = tmp;
 				tmp->next->next = NULL;
 			}
+			ft_map_del(map);
 			return (tmp->next);
 		}
 		else
 			*beg = ft_list_new(map);
+		ft_map_del(map);
 		return (*beg);
 	}
 	return (NULL);

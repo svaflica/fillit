@@ -8,28 +8,32 @@ SRCS_DIR = srcs/
 INC_DIR = inc/
 
 # files for which we will do object files
-SRCS =
+SRCS = *.c
 
 # files which will be compiled in the binary file
-OBJS =
+OBJS = *.o
 
 # flags for compilation
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
-# it will compile 
+# it will compile
 all: $(NAME)
 
-$(NAME) : $(OBJS)
-	gcc -o $(NAME) $(OBJS)
+$(NAME) :
+	gcc -Wall -Wextra -Werror -c srcs/*.c *.c
+	gcc -o $(NAME) *.o libft/libft.a
+#$(NAME) : $(OBJS)
+#	gcc -o $(NAME) $(OBJS)
 
-$(OBJS) : $(SRCS)
-	gcc -Wall -Wextra -Werror $(SRCS) -o $@ -c $<
+#$(OBJS) : $(SRCS)
+#	gcc -Wall -Wextra -Werror $(SRCS) -o $@ -c $<
 
 clean :
 	rm -f $(OBJS)
+	libft/Makefile clean
 
 fclean : clean
-	rm -f $(NAME)
+	rm -f $(NAME) libft/libft.a
 
 re : fclean all
