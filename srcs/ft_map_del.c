@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_tetramino_valid.c                               :+:      :+:    :+:   */
+/*   ft_map_del.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 18:31:00 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/18 11:42:32 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/18 14:34:36 by djeanna           #+#    #+#             */
+/*   Updated: 2019/04/18 14:39:38 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "../inc/header.h"
 
 /*
-**		Usage
+**		This function deletes created map
 */
 
-int		is_tetramino_valid(char *map, int iter)
+void			ft_map_del(char **map)
 {
-	int valid;
+	int i;
 
-	valid = 0;
-	while (iter <= 19 && valid <= 5)
+	if (map && *map)
 	{
-		if (map[iter] == '#')
-		{
-			if (map[iter + 1] == '#')
-				valid++;
-			if (iter <= 14 && map[iter + 5] == '#')
-				valid++;
-			if (iter > 0 && map[iter - 1] == '#')
-				valid++;
-			if (iter >= 5 && map[iter - 5] == '#')
-				valid++;
-		}
-		iter++;
+		i = 0;
+		while (map[i])
+			ft_strdel(*map[i++]);
+		map = NULL;
 	}
-	return (valid > 5);
 }

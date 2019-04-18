@@ -6,11 +6,15 @@
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 15:01:04 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/18 11:14:58 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/18 11:42:09 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/header.h"
+
+/*
+**		Usage
+*/
 
 static	char		*del_all(t_lst **tetramino, char *tmp)
 {
@@ -19,6 +23,10 @@ static	char		*del_all(t_lst **tetramino, char *tmp)
 	ft_strdel(&tmp);
 	return (NULL);
 }
+
+/*
+**		Usage
+*/
 
 static	char		*is_valid(char *buff, t_lst **tetramino, int res)
 {
@@ -42,6 +50,10 @@ static	char		*is_valid(char *buff, t_lst **tetramino, int res)
 		return (NULL);
 	return (tmp);
 }
+
+/*
+**		Usage
+*/
 
 t_lst				*map_reader(int fd, t_lst **tetramino)
 {
