@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is_map_valid.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
+/*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 16:55:25 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/18 18:05:22 by ashari           ###   ########.fr       */
+/*   Updated: 2019/04/18 19:02:17 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/header.h"
 
 /*
-**		This function
+**		Checking if characters is valid or not (4 # also)
 */
 
 int		ft_is_map_valid(char *buff, int res1)

@@ -6,11 +6,15 @@
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 16:56:21 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/18 17:26:33 by ashari           ###   ########.fr       */
+/*   Updated: 2019/04/18 18:55:38 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/header.h"
+
+/*
+**    Check if map has valid number of \n
+*/
 
 int			ft_check_nl(int fd)
 {
