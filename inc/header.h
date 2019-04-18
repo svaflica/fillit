@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 15:48:49 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/17 18:01:38 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/17 22:20:55 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void			ft_list_del(t_lst **beg);
 char			**ft_map_dup(char **map);
 void			ft_map_del(char **map);
 
-int				get_next_line(const int fd, char **line);
 int				is_tetramino_valid(char *cur, int iter);
+int				is_map_valid(char *buff, int res1);
+t_lst			*map_reader(int fd, t_lst **tetramino);
 
 #endif

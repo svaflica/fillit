@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_tetramino_valid.c                               :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 18:31:00 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/18 10:54:47 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/17 20:00:32 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/18 11:32:03 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "inc/header.h"
+#include <stdio.h>
 
-int				is_tetramino_valid(char *map, int iter)
+int		main(int ac, char **av)
 {
-	int valid;
+	t_lst	*t;
+	int		fd;
 
-	valid = 0;
-	while (iter <= 19 && valid <= 5)
+	fd = open(av[1], O_RDONLY);
+	t = map_reader(fd, &t);
+	int i;
+	while (t)
 	{
-		if (map[iter] == '#')
+		i = 0;
+		while ((t->map)[i])
 		{
-			if (map[iter + 1] == '#')
-				valid++;
-			if (iter <= 14 && map[iter + 5] == '#')
-				valid++;
-			if (iter > 0 && map[iter - 1] == '#')
-				valid++;
-			if (iter >= 5 && map[iter - 5] == '#')
-				valid++;
+			printf("%s\n", (t->map)[i]);
+			i++;
 		}
-		iter++;
+		printf("\n");
+		t = t->next;
 	}
-	return (valid > 5);
+	close(fd);
 }

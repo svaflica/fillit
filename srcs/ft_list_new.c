@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list_new.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:57:19 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/17 18:00:28 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/17 22:21:01 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/header.h"
+#include "../inc/header.h"
 
 /*
 **		This function creates a new object of t_list type
@@ -25,4 +25,5 @@ t_lst		*ft_list_new(char **map)
 	new->map = ft_map_dup(map);
 	new->next = NULL;
 	new->prev = NULL;
+	return (new);
 }

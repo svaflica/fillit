@@ -1,36 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_tetramino_valid.c                               :+:      :+:    :+:   */
+/*   is_map_valid.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 18:31:00 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/18 10:54:47 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/17 18:34:42 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/18 11:23:13 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "../inc/header.h"
 
-int				is_tetramino_valid(char *map, int iter)
+int		is_map_valid(char *buff, int res1)
 {
-	int valid;
+	int			i;
+	int			res;
+	int			count;
 
-	valid = 0;
-	while (iter <= 19 && valid <= 5)
+	i = 0;
+	count = 0;
+	while (buff[i])
 	{
-		if (map[iter] == '#')
+		if ((buff[i] == '.' || buff[i] == '#')
+		|| (buff[i] == '\n' && (i % 10 == 9 || i % 10 == 4 || i == 20)))
 		{
-			if (map[iter + 1] == '#')
-				valid++;
-			if (iter <= 14 && map[iter + 5] == '#')
-				valid++;
-			if (iter > 0 && map[iter - 1] == '#')
-				valid++;
-			if (iter >= 5 && map[iter - 5] == '#')
-				valid++;
+
+			if (buff[i] == '#')
+			{
+				if (count == 0)
+					res = i;
+				count++;
+			}
+			i++;
 		}
-		iter++;
+		else
+			return (-1);
 	}
-	return (valid > 5);
+	if (count != 4 || i != res1)
+		return (-1);
+	return (res);
 }

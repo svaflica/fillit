@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list_pushback.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 20:33:23 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/17 18:00:38 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/17 22:20:46 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/header.h"
+#include "../inc/header.h"
 
 /*
 **		This function creates a new list with parameter map and
@@ -28,7 +28,7 @@ t_lst			*ft_list_pushback(t_lst **beg, char **map)
 			tmp = *beg;
 			while (tmp->next)
 				tmp = tmp->next;
-			tmp->next = ft_strnew(map);
+			tmp->next = ft_list_new(map);
 			if (tmp->next)
 			{
 				(tmp->next)->prev = tmp;
@@ -37,7 +37,7 @@ t_lst			*ft_list_pushback(t_lst **beg, char **map)
 			return (tmp->next);
 		}
 		else
-			*beg = ft_strnew(map);
+			*beg = ft_list_new(map);
 		return (*beg);
 	}
 	return (NULL);
