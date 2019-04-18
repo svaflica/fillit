@@ -6,14 +6,14 @@
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 16:55:53 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/18 18:43:07 by ashari           ###   ########.fr       */
+/*   Updated: 2019/04/18 18:53:38 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/header.h"
 
 /*
-**		Usage
+**		Delete list and tmp (str with 20 chars)
 */
 
 static	char		*del_all(t_lst **tetramino, char **tmp)
@@ -24,7 +24,7 @@ static	char		*del_all(t_lst **tetramino, char **tmp)
 }
 
 /*
-**		Usage
+**		Check all validations checkings
 */
 
 static	char		*is_valid(char *buff, t_lst **tetramino, int res)
@@ -51,7 +51,7 @@ static	char		*is_valid(char *buff, t_lst **tetramino, int res)
 }
 
 /*
-**		Usage
+**		Read map and clean all lists and strs, if (NULL)
 */
 
 t_lst				*ft_map_reader(int fd, t_lst **tetramino)
