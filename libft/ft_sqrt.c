@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/17 20:00:32 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/19 14:16:33 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/19 08:37:23 by djeanna           #+#    #+#             */
+/*   Updated: 2019/04/19 12:16:26 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/header.h"
-
-int			main(int ac, char **av)
+int		ft_sqrt(int n)
 {
-	t_lst	*t;
-	int		fd;
+	int i;
 
-	if (ac == 2)
-	{
-		fd = open(av[1], O_RDONLY);
-		if (!(ft_check_nl(fd)))
-			return (ft_error_msg(fd));
-		else
-		{
-			close(fd);
-			fd = open(av[1], O_RDONLY);
-			if (!(t = ft_map_reader(fd, &t)))
-				return (ft_error_msg(fd));
-			ft_solver(t);
-		}
-	}
-	else
-		return (ft_error_msg(fd));
+	i = 1;
+	while (i * i < n)
+		i++;
+	return (i);
 }

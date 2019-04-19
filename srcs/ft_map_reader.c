@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_reader.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
+/*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 16:55:53 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/18 18:53:38 by ashari           ###   ########.fr       */
+/*   Updated: 2019/04/19 13:03:21 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static	char		*is_valid(char *buff, t_lst **tetramino, int res)
 		if (ft_is_tetramino_valid(tmp, loc))
 		{
 			if (!(tetramino_tmp =
-				ft_list_pushback(tetramino, ft_strsplit(tmp, '\n'))))
+				ft_list_pushback(tetramino, tmp)))
 				return (del_all(tetramino, &tmp));
 		}
 		else

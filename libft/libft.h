@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 09:04:10 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/14 15:31:04 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/19 08:41:19 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,9 @@ char				*ft_strnstr(const char *haystack, const char *needle,
 		size_t len);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
+
+int					ft_sqrt(int n);
+
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_isprint(int c);

@@ -6,7 +6,7 @@
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 15:48:49 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/18 19:59:12 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/19 14:12:23 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,24 @@ typedef struct	s_lst
 	//char		**map;
 	char		map;
 
+	int			h;
+	int			w;
 	struct s_lst		*next;
-	struct s_lst		*prev;
+	//struct s_lst		*prev;
 }				t_lst;
 
 t_lst			*ft_list_new(char *map);
-t_lst			*ft_list_pushback(t_lst **beg, char **map);
+t_lst			*ft_list_pushback(t_lst **beg, char *map);
 void			ft_list_delone(t_lst **to_del);
 void			ft_list_del(t_lst **beg);
+int				ft_list_size(t_lst *beg);
 
 char			**ft_map_dup(char **map);
 void			ft_map_del(char **map);
+int				ft_find_coordinate(char *tetr, int *h, int *w);
+char			ft_map_create(char *map, int coord, int h, int w);
+
+int				ft_solver(t_lst *tetramino);
 
 int				ft_is_tetramino_valid(char *cur, int iter);
 int				ft_check_nl(int fd);

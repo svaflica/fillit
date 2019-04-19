@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_new.c                                      :+:      :+:    :+:   */
+/*   ft_list_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 18:57:19 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/19 12:19:09 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/19 08:52:11 by djeanna           #+#    #+#             */
+/*   Updated: 2019/04/19 08:53:45 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/header.h"
 
-/*
-**		This function creates a new object of t_list type
-*/
-
-t_lst		*ft_list_new(char *map)
+int		ft_list_size(t_lst *beg)
 {
-	t_lst	*new;
-	//int		coord;
+	int res;
 
-	if (!(new = (t_lst *)malloc(sizeof(t_lst))))
-		return (NULL);
-	//new->map = ft_map_dup(map);
-	//coord = ft_find_coordinate(map, &(new->h), &(new->w));
-	new->map = ft_map_create(map, ft_find_coordinate(map, &(new->h), &(new->w)),
-							new->h, new->w);
-	new->next = NULL;
-	//new->prev = NULL;
-	return (new);
+	res = 0;
+	while (beg)
+	{
+		res++;
+		beg = beg->next;
+	}
+	return (res);
 }
