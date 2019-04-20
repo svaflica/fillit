@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_find_coordinate.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 20:57:36 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/19 14:11:47 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/20 15:31:53 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,28 +40,7 @@ static	int		where_the_nearest(char *tetr, int *last, int *last_coord)
 	return (nearest);
 }
 
-static	int		where_the_farest(char *tetr)
-{
-	int			nearest;
-	int			i;
-	int			step;
-
-	nearest = 0;
-	i = -1;
-	while (++i < 19)
-	{
-		step = -1;
-		while (++step < 4)
-		{
-			if ((i % 10) != 4 && (i % 10) != 9 && tetr[i] == '#')
-				(step > nearest) ? nearest = step : 0;
-			i++;
-		}
-	}
-	return (nearest);
-}
-
-static	int		give_me_your_size(char *tetr)
+static	int		get_high(char *tetr)
 {
 	int			h;
 	int			flag;
@@ -109,7 +88,7 @@ int				ft_find_coordinate(char *tetr, int *h, int *w)
 	int			coord;
 
 	nearest = where_the_nearest(tetr, &last, &last_coord);
-	*h = give_me_your_size(tetr);
+	*h = get_high(tetr);
 	coord = last - (last_coord - nearest) - (*h - 1) * 5;
 	*w = get_width(tetr) % 5 - coord % 5 + 1;
 	return (coord);

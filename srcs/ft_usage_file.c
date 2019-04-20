@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_usage_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/19 08:37:23 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/20 16:48:44 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/20 13:35:09 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/20 16:14:23 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_sqrt(int n)
-{
-	int i;
+#include "../inc/header.h"
 
-	i = 1;
-	while (i * i < n)
-		i++;
-	return (i);
+int		ft_usage_file(void)
+{
+	int			fd;
+	char		buf[2];
+
+	if ((fd = open("./usage.txt", O_RDONLY)) == -1)
+		return (ft_error_msg(fd));
+	while (read(fd, buf, 1))
+		write(1, buf, 1);
+	close(fd);
+	return (0);
 }

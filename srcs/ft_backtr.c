@@ -6,7 +6,7 @@
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 18:30:37 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/20 16:12:16 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/20 21:25:41 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,31 @@ static char		ft_helper(int w)
 	return (res);
 }
 
-static int		ft_insertion(t_lst *tetr, long long *map, int size,
+static int		ft_insertion(t_lst **tetr, long long *map, int size,
 								int row, int shift)
 {
 	char		tmp;
 	long long	map_tmp[size];
 	int			h;
 	char		t;
+	int			t_row;
 
-	tetr->x = size - shift - 1;
-	tetr->y = row;
-	t = ft_helper(tetr->w);
-	tmp = tetr->map;
-	h = tetr->h;
+	(*tetr)->x = size - shift - 1;
+	(*tetr)->y = row;
+	t = ft_helper((*tetr)->w);
+	tmp = (*tetr)->map;
+	h = (*tetr)->h;
+	t_row = row;
 	while (h)
 	{
-		map_tmp[row] = map[row] ^ ((tmp & t) << (size - shift + 1));
-		if (map_tmp[tmp] - map[tmp] == tmp)
+		map_tmp[row] = map[row] ^ ((tmp & t) << (size - 1 - shift));
+		if (map_tmp[row] - map[row] != ((tmp & t) << (size - 1 - shift)))
 			return (0);
-		tmp = tmp >> tetr->w;
+		tmp = tmp >> (*tetr)->w;
+		row++;
 		h--;
 	}
-	// copy from map_tmp to map
+	map = ft_arrncpy(map, map_tmp, t_row, size);
 	return (1);
 }
 
@@ -56,27 +59,29 @@ int				ft_try_to_solve(t_lst *tetr, long long *map, int size)
 {
 	int row;
 	int	shift;
+	int solve;
 
-	shift = size - 1;
+	shift = 0;
 	row = 0;
+	solve = 0;
 	while (tetr)
 	{
-		if ((map[row] >> shift) & 1 == 0)
-			if (ft_insertion(tetr, map, size, row, shift))
-			{
-				ft_try_to_solve(tetr->next, map, size);
-				ft_free_from(tetr->next, map);
-			}
-			else if (row == size - 1 && tetr->w <= size - shift - 1 &&
-						tetr->h >= size - row)
-				return (0);
-		if (--shift == -1 || tetr->w <= size - shift - 1)
+		if (((map[row] >> (size - 1 - shift)) & 1) == 0)
 		{
-			shift = size - 1;
+			if (tetr->h > size - row)
+				return (0);
+			else if (ft_insertion(&tetr, map, size, row, shift))
+				solve = ft_try_to_solve(tetr->next, map, size);
+			if (solve)
+				return (1);
+			else
+				ft_free_from(tetr->next, map);
+		}
+		if (++shift == size || tetr->w > size - shift)
+		{
+			shift = 0;
 			row++;
 		}
 	}
-	while (--size)
-		printf("%d\n", map[size]);
 	return (1);
 }

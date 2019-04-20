@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_arrncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/19 08:37:23 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/20 16:48:44 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/20 15:59:59 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/20 20:17:35 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_sqrt(int n)
-{
-	int i;
+#include "../inc/header.h"
 
-	i = 1;
-	while (i * i < n)
+void	*ft_arrncpy(long long *dst, long long *src, int i, int n)
+{
+	int				j;
+
+	j = 0;
+	while (src[i] && j < n)
+	{
+		dst[j] = src[i];
+		j++;
 		i++;
-	return (i);
+	}
+
+	return (dst);
 }

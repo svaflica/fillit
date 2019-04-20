@@ -6,7 +6,7 @@
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 18:10:07 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/20 13:23:08 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/20 21:17:17 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static	int		ft_solution_map_size(int n)
 
 static void		fill_by_zero(long long *map, int size)
 {
-	while (--size > 0)
+	while (--size >= 0)
 		map[size] = 0;
 }
 
@@ -30,14 +30,19 @@ int				ft_solver(t_lst *tetramino)
 	int				solve;
 
 	fill_by_zero(map, 11);
-	size = ft_solution_map_size(size * 4);
+	size = ft_solution_map_size(ft_list_size(tetramino) * 4);
 	solve = 0;
 	while (!solve)
 	{
 		solve = ft_try_to_solve(tetramino, map, size);
 		if (!solve)
-			fill_by_zero(map, 11);
+			fill_by_zero(map, size);
 		size++;
+	}
+	int i = 0;
+	while (i < size - 1)
+	{
+		printf("%d\n", map[i++]);
 	}
 	return (1);
 }
