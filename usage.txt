@@ -1,0 +1,44 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    usage.txt                                          :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: the best team from Russia                  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/04/20 12:05:29 by ashari            #+#    #+#              #
+#    Updated: 2019/04/20 13:24:18 by djeanna          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+			OH NO! YOU MADE A MISTAKE!
+
+	I AM THE ONE WHO WILL HELP YOU ALL TO CORRECT. JUST READ ME.
+
+
+		You must give ONLY 1 file, as a parameter.
+		File should contain a list of Tetriminos to assemble.
+		This file has a very specific format : every Tetrimino
+		must exactly fit in a 4 by 4 chars square
+		and all Tetrimino are separated by an newline each.
+
+
+		A few examples of valid descriptions of Tetriminos:
+
+		.... .... #### .... .##. .... .#.. .... ....
+		..## .... .... .... ..## .##. ###. ##.. .##.
+		..#. ..## .... ##.. .... ##.. .... #... ..#.
+		..#. ..## .... ##.. .... .... .... #... ..#.
+
+		A few examples of invalid descriptions of Tetriminos:
+
+		.... .... ###. .... .11. .... ....
+		..9# .... .... .... ..11 .##. ###. #.#. .**.
+		..#. ..AA .... .#.. .... ##.. .... #... .**.
+		..#. ..AA .... ##.. .... ,,.. .... #... ..*.
+
+		
+	       NOW YOU CAN TEST OUR PROGRAM WITH 26 TETRAMINO!
+				
+				GOOD LUCK!
+
+# **************************************************************************** #

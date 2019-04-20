@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_new.c                                      :+:      :+:    :+:   */
+/*   ft_usage_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 18:57:19 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/20 15:37:34 by ashari           ###   ########.fr       */
+/*   Created: 2019/04/20 13:35:09 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/20 15:31:47 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/header.h"
 
-/*
-**		This function creates a new object of t_list type
-*/
-
-t_lst		*ft_list_new(char *map)
+int		ft_usage_file(void)
 {
-	t_lst	*new;
+	int			fd;
+	char		buf[31];
 
-	if (!(new = (t_lst *)malloc(sizeof(t_lst))))
-		return (NULL);
-	new->map = ft_map_create(map, ft_find_coordinate(map, &(new->h), &(new->w)),
-							new->h, new->w);
-	new->next = NULL;
-	ft_strdel(&map);
-	return (new);
+	if ((fd = open("./usage.txt", O_RDONLY)) == -1)
+		return (ft_error_msg(fd));
+	while (read(fd, buf, 1))
+		write(1, buf, 1);
+	close(fd);
+	return (0);
 }

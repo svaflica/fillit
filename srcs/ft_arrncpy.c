@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_new.c                                      :+:      :+:    :+:   */
+/*   ft_arrncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 18:57:19 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/20 15:37:34 by ashari           ###   ########.fr       */
+/*   Created: 2019/04/20 15:59:59 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/20 16:05:11 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/header.h"
 
-/*
-**		This function creates a new object of t_list type
-*/
-
-t_lst		*ft_list_new(char *map)
+void				*ft_arrncpy(void *dst, void *src, int i, int n)
 {
-	t_lst	*new;
+	int				j;
+	unsigned char	*dst1;
+	unsigned char	*src1;
 
-	if (!(new = (t_lst *)malloc(sizeof(t_lst))))
-		return (NULL);
-	new->map = ft_map_create(map, ft_find_coordinate(map, &(new->h), &(new->w)),
-							new->h, new->w);
-	new->next = NULL;
-	ft_strdel(&map);
-	return (new);
+	dst1 = dst;
+	src1 = src;
+	j = 0;
+	while (src1[i] && j < n)
+	{
+		dst1[j] = src1[i];
+		j++;
+		i++;
+	}
+	return ((void *)dst1);
 }

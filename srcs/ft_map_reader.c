@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_reader.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 16:55:53 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/19 13:03:21 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/20 15:31:51 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@
 
 static	char		*del_all(t_lst **tetramino, char **tmp)
 {
-	ft_list_del(tetramino);
-	ft_strdel(tmp);
+	if (tetramino)
+		ft_list_del(tetramino);
+	if (tmp)
+		ft_strdel(tmp);
 	return (NULL);
 }
 
