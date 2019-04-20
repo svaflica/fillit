@@ -6,14 +6,12 @@
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 15:48:49 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/20 09:22:05 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/20 14:02:04 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
-
-# define LLONG_MAX 18446744073709551615
 
 #include <stdlib.h>
 #include <fcntl.h>
