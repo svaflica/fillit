@@ -6,12 +6,14 @@
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 15:48:49 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/19 14:12:23 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/20 09:22:05 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
+
+# define LLONG_MAX 18446744073709551615
 
 #include <stdlib.h>
 #include <fcntl.h>
@@ -22,13 +24,13 @@
 
 typedef struct	s_lst
 {
-	//char		**map;
 	char		map;
 
 	int			h;
 	int			w;
+	int			x;
+	int			y;
 	struct s_lst		*next;
-	//struct s_lst		*prev;
 }				t_lst;
 
 t_lst			*ft_list_new(char *map);
@@ -43,6 +45,7 @@ int				ft_find_coordinate(char *tetr, int *h, int *w);
 char			ft_map_create(char *map, int coord, int h, int w);
 
 int				ft_solver(t_lst *tetramino);
+int				ft_try_to_solve(t_lst *tetr, long long *map, int size);
 
 int				ft_is_tetramino_valid(char *cur, int iter);
 int				ft_check_nl(int fd);
