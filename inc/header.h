@@ -6,7 +6,7 @@
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 15:48:49 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/21 13:46:15 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/21 19:05:27 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char			ft_map_create(char *map, int coord, int h, int w);
 int				ft_print_map(t_lst *tetr, int size);
 
 int				ft_solver(t_lst *tetramino);
-int				ft_try_to_solve(t_lst *tetr, long long *map, int size);
+int				ft_try_to_solve(t_lst *tetr, long long *map, int size, int plus);
 
 int				ft_is_tetramino_valid(char *cur, int iter);
 int				ft_check_nl(int fd);

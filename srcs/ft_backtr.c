@@ -6,7 +6,7 @@
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 18:30:37 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/21 14:39:31 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/21 19:14:05 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static void		ft_free_from(t_lst *tetr, long long *map, int row, int shift)
 	}
 }
 
-int				ft_try_to_solve(t_lst *tetr, long long *map, int size)
+int				ft_try_to_solve(t_lst *tetr, long long *map, int size, int plus)
 {
 	int row;
 	int	shift;
@@ -80,14 +80,14 @@ int				ft_try_to_solve(t_lst *tetr, long long *map, int size)
 		{
 			if (tetr->h > size - row)
 				return (0);
-			else if (ft_insertion(tetr, map, row, size - 1 - shift))
+			else if (ft_insertion(tetr, map, row, size - 1 - shift + plus))
 			{
 				tetr->x = shift;
 				tetr->y = row;
-				if (ft_try_to_solve(tetr->next, map, size))
+				if (ft_try_to_solve(tetr->next, map, size, plus))
 					return (1);
 				else
-					ft_free_from(tetr, map, row, size - 1 - shift);
+					ft_free_from(tetr, map, row, size - 1 - shift + plus);
 			}
 		}
 		if ((++shift == size || tetr->w > size - shift) && ++row)
