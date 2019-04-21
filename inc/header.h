@@ -6,7 +6,7 @@
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 15:48:49 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/21 11:48:04 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/21 13:46:15 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void			*ft_arrncpy(long long *dst, long long *src, int i, int n);
 void			ft_map_del(char **map);
 int				ft_find_coordinate(char *tetr, int *h, int *w);
 char			ft_map_create(char *map, int coord, int h, int w);
-
+int				ft_print_map(t_lst *tetr, int size);
 
 int				ft_solver(t_lst *tetramino);
 int				ft_try_to_solve(t_lst *tetr, long long *map, int size);

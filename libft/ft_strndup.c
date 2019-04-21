@@ -3,33 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 14:34:39 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/14 14:44:39 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/04 18:00:07 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/13 11:44:43 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strndup(const char *s1, size_t n)
+char		*ft_strndup(const char *s1, size_t n)
 {
-	char	*res;
-	size_t	len;
+	char	*new_s1;
+	int		i;
 
-	if (s1 == NULL)
+	if (!(new_s1 = (char *)malloc(sizeof(char) * (n + 1))))
 		return (NULL);
-	len = ft_strlen(s1);
-	if (len > n)
-		len = n;
-	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	res[len--] = '\0';
-	len = 0;
-	while (len < n)
+	i = 0;
+	while (s1[i] && i < (int)n)
 	{
-		res[len] = s1[len];
-		len++;
+		new_s1[i] = s1[i];
+		i++;
 	}
-	return (res);
+	new_s1[i] = '\0';
+	return (new_s1);
 }

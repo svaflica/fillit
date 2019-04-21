@@ -3,24 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ashari <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/02 13:13:28 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/07 11:14:40 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/04 19:57:34 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/06 20:06:20 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(const char *s1, const char *s2)
+int					ft_strcmp(const char *s1, const char *s2)
 {
-	unsigned char	*tmp_s1;
-	unsigned char	*tmp_s2;
+	int				i;
+	unsigned char	*s1_new;
+	unsigned char	*s2_new;
 
-	tmp_s1 = (unsigned char *)s1;
-	tmp_s2 = (unsigned char *)s2;
-	while (*tmp_s1 == *tmp_s2 && *tmp_s1 && *tmp_s2)
-	{
-		tmp_s1++;
-		tmp_s2++;
-	}
-	return ((int)(*tmp_s1 - *tmp_s2));
+	i = 0;
+	s1_new = (unsigned char *)s1;
+	s2_new = (unsigned char *)s2;
+	while (s1_new[i] == s2_new[i] && s1_new[i] && s2_new[i])
+		i++;
+	return (s1_new[i] - s2_new[i]);
 }

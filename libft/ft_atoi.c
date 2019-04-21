@@ -3,39 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/04 17:38:12 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/08 10:07:20 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/03 20:09:36 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/13 12:43:44 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_atoi(const char *str)
+int							ft_atoi(const char *str)
 {
-	unsigned long int	res;
-	int					sign;
+	int						i;
+	int						znak;
+	unsigned long long int	result;
 
-	sign = 1;
-	res = 0;
-	while (*str == ' ' || *str == '\n' || *str == '\t' ||
-			*str == '\f' || *str == '\r' || *str == '\v')
-		str++;
-	if (*str == '-')
-		sign = -1;
-	if (*str == '+' || *str == '-')
-		str++;
-	while ('0' <= *str && *str <= '9')
+	i = 0;
+	result = 0;
+	znak = 1;
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\r'
+			|| str[i] == '\f' || str[i] == ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if ((res > MAX_INT || (res == MAX_INT && (*str - '0') > 7)) &&
-				sign == 1)
-			return (-1);
-		else if ((res > MAX_INT || (res == MAX_INT && (*str - '0') > 8)) &&
-				sign == -1)
-			return (0);
-		res = 10 * res + (int)(*str - '0');
-		str++;
+		if (str[i++] == '-')
+			znak *= -1;
 	}
-	return ((int)(sign * res));
+	while (str[i] >= 48 && str[i] <= 57)
+	{
+		result = result * 10 + (str[i] - '0');
+		if (result >= 9223372036854775807 && znak == 1)
+			return (-1);
+		else if (result > 9223372036854775807 && znak == -1)
+			return (0);
+		i++;
+	}
+	return (result * znak);
 }

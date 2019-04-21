@@ -6,7 +6,7 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceRoot}/a.out",
-			"args": ["./test/correct_file/valid_2"],
+			"args": ["./test/correct_file/valid_0"],
 			"stopAtEntry": false,
 			"cwd": "${workspaceRoot}",
 			"environment": [],

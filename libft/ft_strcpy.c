@@ -3,23 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ashari <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/04 10:33:36 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/07 11:14:51 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/04 18:13:09 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/06 20:05:45 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dst, const char *src)
+char				*ft_strcpy(char *dst, const char *src)
 {
-	int iter;
+	int				i;
+	unsigned char	*src1;
 
-	iter = 0;
-	while (src[iter] != '\0')
+	i = 0;
+	src1 = (unsigned char *)src;
+	while (src1[i])
 	{
-		dst[iter] = src[iter];
-		iter++;
+		dst[i] = src1[i];
+		i++;
 	}
-	dst[iter] = '\0';
+	dst[i] = src1[i];
 	return (dst);
 }

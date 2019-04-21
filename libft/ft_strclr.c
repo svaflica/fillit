@@ -3,22 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ashari <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/06 18:22:35 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/07 16:28:04 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/06 21:55:14 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/07 11:34:13 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strclr(char *s)
+void		ft_strclr(char *s)
 {
-	if (s == NULL)
-		return ;
-	while (*s)
+	char	*s1;
+
+	if (s != NULL)
 	{
-		*s = '\0';
-		s++;
+		s1 = s;
+		while (*s1)
+		{
+			*s1 = '\0';
+			s1++;
+		}
 	}
 }

@@ -3,39 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ashari <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/07 11:59:28 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/15 13:58:44 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/07 17:08:38 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/08 17:55:57 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char     *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		len1;
-	int		len2;
-	int		iter;
-	char	*res;
+	char *s_new;
 
-	if (s1 == NULL && s2 == NULL)
+	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	if (!(res = (char *)malloc(sizeof(char) * (len1 + len2 + 1))))
+	if (!(s_new = (char *)malloc(sizeof(char) *
+					(ft_strlen(s1) + ft_strlen(s2) + 1))))
 		return (NULL);
-	iter = 0;
-	while (iter < len1)
-	{
-		res[iter] = s1[iter];
-		iter++;
-	}
-	while (iter - len1 < len2)
-	{
-		res[iter] = s2[iter - len1];
-		iter++;
-	}
-	res[iter] = '\0';
-	return (res);
+	ft_strcpy(s_new, s1);
+	ft_strcat(s_new, s2);
+	return (s_new);
 }

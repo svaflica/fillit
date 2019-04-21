@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isblank.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ashari <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/07 20:06:05 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/07 21:46:43 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/09 15:33:42 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/09 15:35:52 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isblank(int c)
+#include "libft.h"
+
+int	ft_isblank(int c)
 {
-	return (c == ' ' || c == '\t');
+	return (c == '\t' || c == ' ');
 }

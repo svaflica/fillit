@@ -3,88 +3,76 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/07 12:33:32 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/08 09:59:07 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/07 20:26:17 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/13 12:26:24 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			num_words(char const *s, char c)
+static int	c_l(char const *s, int i, char c)
 {
-	int check;
-	int res;
+	int count;
 
-	res = 0;
-	check = 0;
-	while (*s)
+	count = 0;
+	while (s[i + 1] != c && s[i] != '\0')
 	{
-		if ((char)*s != c)
-		{
-			if (!check)
-				res++;
-			check = 1;
-		}
-		else
-			check = 0;
-		s++;
+		count++;
+		i++;
 	}
-	return (res);
+	return (count + 1);
 }
 
-static int			len_words(char const *s, char c)
+static int	c_w(char const *s, char c)
 {
-	int res;
+	int count;
+	int i;
 
-	res = 0;
-	while ((char)*s != c && *s)
+	count = 0;
+	i = 0;
+	while (s[i])
 	{
-		res++;
-		s++;
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+			count++;
+		i++;
 	}
-	return (res);
+	return (count + 1);
 }
 
-static char const	*cp(char *dst, char const *s, char c)
+static int	skipp(int i, char const *s, char c)
 {
-	int iter;
-
-	iter = 0;
-	while ((char)*s != c && *s)
-	{
-		dst[iter] = *s;
-		iter++;
-		s++;
-	}
-	return (s);
+	while (s[i] == c)
+		i++;
+	return (i);
 }
 
-char				**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
-	int		iter;
-	int		iter2;
-	char	**res;
+	int		i1;
+	int		i;
+	int		j;
+	char	**new;
 
-	if (s == NULL)
+	i1 = -1;
+	i = 0;
+	if (s == NULL || !(new = (char **)malloc
+(sizeof(char *) * (c_w(s, c) + 1))))
 		return (NULL);
-	if (!(res = (char **)malloc(sizeof(char *) * (num_words(s, c) + 1))))
-		return (NULL);
-	iter = 0;
-	while (*s)
+	while (++i1 < (c_w(s, c) - 1))
 	{
-		iter2 = 0;
-		if ((char)*s != c)
+		i = skipp(i, s, c);
+		while (s[i] != c && s[i] != '\0')
 		{
-			if (!(res[iter] = ft_memalloc(len_words(s, c) + 1)))
+			j = -1;
+			if (!(new[i1] = (char *)malloc(sizeof(char) * c_l(s, i, c))))
 				return (NULL);
-			s = cp(res[iter], s, c);
-			iter++;
+			while (s[i] != c && s[i])
+				new[i1][++j] = s[i++];
+			new[i1][++j] = '\0';
 		}
-		else
-			s++;
 	}
-	res[iter] = NULL;
-	return (res);
+	new[i1] = NULL;
+	return (new);
 }
