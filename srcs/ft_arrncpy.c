@@ -6,7 +6,7 @@
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 15:59:59 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/20 20:17:35 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/21 11:05:18 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_arrncpy(long long *dst, long long *src, int i, int n)
 	j = 0;
 	while (src[i] && j < n)
 	{
-		dst[j] = src[i];
+		dst[i] = src[i];
 		j++;
 		i++;
 	}
