@@ -6,7 +6,7 @@
 /*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 18:30:37 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/21 19:14:05 by djeanna          ###   ########.fr       */
+/*   Updated: 2019/04/22 08:43:36 by djeanna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static int		ft_insertion(t_lst *tetr, long long *map, int row, int shift)
 	tmp = tetr->map;
 	h = tetr->h;
 	t_row = row + h - 1;
+	shift += tetr->nul;
 	while (h)
 	{
 		m[t_row] = map[t_row] ^ ((tmp & t) << (shift - (tetr->w - 1)));
@@ -60,6 +61,8 @@ static void		ft_free_from(t_lst *tetr, long long *map, int row, int shift)
 	row += h - 1;
 	while (h)
 	{
+		// if (h == 1 && tetr->nul != 0)
+		// 	shift += tetr->nul;
 		map[row] &= ~((tmp & t) << (shift - (tetr->w - 1)));
 		tmp = tmp >> tetr->w;
 		h--;
@@ -67,7 +70,7 @@ static void		ft_free_from(t_lst *tetr, long long *map, int row, int shift)
 	}
 }
 
-int				ft_try_to_solve(t_lst *tetr, long long *map, int size, int plus)
+int				ft_try_to_solve(t_lst *tetr, long long *map, int size)
 {
 	int row;
 	int	shift;
@@ -80,14 +83,14 @@ int				ft_try_to_solve(t_lst *tetr, long long *map, int size, int plus)
 		{
 			if (tetr->h > size - row)
 				return (0);
-			else if (ft_insertion(tetr, map, row, size - 1 - shift + plus))
+			else if (ft_insertion(tetr, map, row, size - 1 - shift))
 			{
 				tetr->x = shift;
 				tetr->y = row;
-				if (ft_try_to_solve(tetr->next, map, size, plus))
+				if (ft_try_to_solve(tetr->next, map, size))
 					return (1);
 				else
-					ft_free_from(tetr, map, row, size - 1 - shift + plus);
+					ft_free_from(tetr, map, row, size - 1 - shift);
 			}
 		}
 		if ((++shift == size || tetr->w > size - shift) && ++row)
