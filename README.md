@@ -1,2 +1,8 @@
-42 School Project.
-There we get tetramino figures on input and tryes to fill the smallest square by them.
+# Fillit
+## Проект из ветки "Алгоритмы" Школы 21
+
+Реализован алгоритм, который при получении на вход набора фигурок тетриса, расставляет их таким образом, чтобы он занимал наименьшую площадь
+
+Пример работы алгоритма приведен ниже:
+![image](https://user-images.githubusercontent.com/35491144/197403023-c2b00867-efdb-4e34-a705-5e5c2b48cd10.png)
+![image](https://user-images.githubusercontent.com/35491144/197403041-95208966-183c-438f-967d-e22e3077a92f.png)
